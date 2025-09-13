@@ -33,7 +33,7 @@
         <liquibase.version>4.16.1</liquibase.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <mapstruct-spring.version>1.0.1</mapstruct-spring.version>
-        <mybatis-plus-boot-starter.version>3.5.1</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.5.3</mybatis-plus-boot-starter.version>
         <mysql.version>5.1.49</mysql.version>
         <nacos-client.version>2.2.4</nacos-client.version>
         <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
