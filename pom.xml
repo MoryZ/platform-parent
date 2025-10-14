@@ -6,38 +6,38 @@
 
     <groupId>com.old.silence</groupId>
     <artifactId>platform-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.1-SNAPSHOT</version>
     <name>platform-parent</name>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.3.8</version>
         <relativePath />
     </parent>
 
     <properties>
-        <java.version>11</java.version>
-        <platform-framework.version>1.0.0-SNAPSHOT</platform-framework.version>
-        <platform-data.version>1.0.0-SNAPSHOT</platform-data.version>
+        <java.version>21</java.version>
+        <platform-framework.version>2.0.1-SNAPSHOT</platform-framework.version>
+        <platform-data.version>2.0.1-SNAPSHOT</platform-data.version>
 
         <!-- Definition of dependencies -->
         <commons-collections4.version>4.4</commons-collections4.version>
-        <commons-codec.version>1.16.0</commons-codec.version>
-        <commons-compress.version>1.25.0</commons-compress.version>
-        <commons-io.version>2.15.0</commons-io.version>
-        <commons-lang3.version>3.14.0</commons-lang3.version>
-        <commons-text.version>1.11.0</commons-text.version>
-        <jakarta-persistence.version>2.2.3</jakarta-persistence.version>
-        <liquibase.version>4.16.1</liquibase.version>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <mapstruct-spring.version>1.0.1</mapstruct-spring.version>
-        <mybatis-plus-boot-starter.version>3.5.5</mybatis-plus-boot-starter.version>
-        <mysql.version>5.1.49</mysql.version>
-        <nacos-client.version>2.2.4</nacos-client.version>
-        <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2021.0.4.0</spring-cloud-alibaba-dependencies.version>
+        <commons-codec.version>1.17.1</commons-codec.version>
+        <commons-compress.version>1.27.1</commons-compress.version>
+        <commons-io.version>2.18.0</commons-io.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
+        <commons-text.version>1.12.0</commons-text.version>
+        <jakarta-persistence.version>3.2.0</jakarta-persistence.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <mapstruct-spring.version>1.1.2</mapstruct-spring.version>
+        <mybatis-plus-boot-starter.version>3.5.6</mybatis-plus-boot-starter.version>
+        <mysql-connector-j.version>8.4.0</mysql-connector-j.version>
+        <nacos-client.version>2.4.3</nacos-client.version>
+        <spring-boot.version>3.3.8</spring-boot.version>
+        <spring-cloud-dependencies.version>2023.0.5</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2023.0.3.2</spring-cloud-alibaba-dependencies.version>
     </properties>
 
     <dependencyManagement>
@@ -119,10 +119,11 @@
                 <version>${jakarta-persistence.version}</version>
             </dependency>
 
+
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot-starter.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version> <!-- 建议使用3.5.6或更高版本 -->
             </dependency>
 
 
@@ -202,30 +203,6 @@
                 <groupId>org.mapstruct.extensions.spring</groupId>
                 <artifactId>mapstruct-spring-annotations</artifactId>
                 <version>${mapstruct-spring.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-extension</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-annotation</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-core</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
 
         </dependencies>
@@ -312,18 +289,18 @@
                     <version>${liquibase.version}</version>
                     <configuration>
                         <changeLogFile>db/changelogs/changelog-master.xml</changeLogFile>
-                        <url>offline:mysql?version=5.7</url>
+                        <url>offline:mysql?version=8.0</url>
                     </configuration>
                     <dependencies>
                         <dependency>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql.version}</version>
+                            <groupId>com.mysql</groupId>
+                            <artifactId>mmysql-connector-j</artifactId>
+                            <version>${mysql-connector-j.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.commons</groupId>
                             <artifactId>commons-text</artifactId>
-                            <version>1.10.0</version>
+                            <version>${commons-text.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -331,7 +308,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.5.0</version>
                     <executions>
                         <execution>
                             <id>enforce-banned-dependencies</id>
@@ -351,13 +328,12 @@
                                         <excludes>
                                             <exclude>commons-logging</exclude>
                                             <exclude>aspectj:aspectj*</exclude>
-                                            <exclude>aspectj:aspectj*</exclude>
                                             <exclude>org.springframework</exclude>
                                             <exclude>org.springframework.boot</exclude>
                                         </excludes>
                                         <includes>
-                                            <include>org.springframework:*:5.*</include>
-                                            <include>org.springframework.boot:*:2.*</include>
+                                            <include>org.springframework:*:6.*</include>
+                                            <include>org.springframework.boot:*:3.*</include>
                                             <include>org.springframework:spring-tuple:*</include>
                                         </includes>
                                     </bannedDependencies>
@@ -371,7 +347,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.8</version>
+                    <version>0.8.9</version>
                     <executions>
                         <execution>
                             <id>prepare-agent</id>
