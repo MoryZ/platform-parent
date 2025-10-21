@@ -21,6 +21,7 @@
         <java.version>21</java.version>
         <platform-framework.version>2.0.1-SNAPSHOT</platform-framework.version>
         <platform-data.version>2.0.1-SNAPSHOT</platform-data.version>
+        <platform-cloud.version>2.0.1-SNAPSHOT</platform-cloud.version>
 
         <!-- Definition of dependencies -->
         <commons-collections4.version>4.4</commons-collections4.version>
@@ -89,6 +90,12 @@
                 <groupId>com.old.silence</groupId>
                 <artifactId>platform-data-mybatis-plus</artifactId>
                 <version>${platform-data.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>platform-cloud-config</artifactId>
+                <version>${platform-cloud.version}</version>
             </dependency>
 
             <dependency>
