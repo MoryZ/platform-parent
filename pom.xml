@@ -350,6 +350,35 @@
                     </executions>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>1.15.0</version>
+                    <configuration>
+                        <complianceLevel>${java.version}</complianceLevel>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <showWeaveInfo>true</showWeaveInfo>
+                        <verbose>true</verbose>
+                        <Xlint>ignore</Xlint>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <aspectLibraries>
+                            <aspectLibrary>
+                                <groupId>org.springframework</groupId>
+                                <artifactId>spring-aspects</artifactId>
+                            </aspectLibrary>
+                        </aspectLibraries>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>test-compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <!-- jacoco plugin for code coverage reports -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
