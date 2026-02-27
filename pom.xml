@@ -58,6 +58,14 @@
 
             <dependency>
                 <groupId>com.old.silence</groupId>
+                <artifactId>platform-core</artifactId>
+                <version>${platform-framework.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.old.silence</groupId>
                 <artifactId>platform-json</artifactId>
                 <version>${platform-framework.version}</version>
             </dependency>
@@ -76,8 +84,24 @@
 
             <dependency>
                 <groupId>com.old.silence</groupId>
+                <artifactId>platform-webmvc</artifactId>
+                <version>${platform-framework.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.old.silence</groupId>
                 <artifactId>platform-validation</artifactId>
                 <version>${platform-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.old.silence</groupId>
+                <artifactId>platform-validation</artifactId>
+                <version>${platform-framework.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
             </dependency>
 
             <dependency>
