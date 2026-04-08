@@ -35,6 +35,7 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <mapstruct-spring.version>1.1.2</mapstruct-spring.version>
         <mybatis-plus-boot-starter.version>3.5.6</mybatis-plus-boot-starter.version>
+        <mybatis-boot-starter-test.version>3.0.5</mybatis-boot-starter-test.version>
         <mysql-connector-j.version>8.4.0</mysql-connector-j.version>
         <nacos-client.version>2.4.3</nacos-client.version>
         <spring-boot.version>3.3.8</spring-boot.version>
@@ -242,6 +243,12 @@
                 <groupId>org.mapstruct.extensions.spring</groupId>
                 <artifactId>mapstruct-spring-annotations</artifactId>
                 <version>${mapstruct-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter-test</artifactId>
+                <version>${mybatis-boot-starter-test.version}</version>
             </dependency>
 
         </dependencies>
